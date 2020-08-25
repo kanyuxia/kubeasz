@@ -74,6 +74,13 @@
     - name: 创建docker的systemd unit文件
       template: src=docker.service.j2 dest=/etc/systemd/system/docker.service
       tags: upgrade_docker, download_docker
+
+    - name: add /etc/hosts
+      lineinfile:
+        dest: /etc/hosts
+        state: present
+        regexp: '{{ HARBOR_DOMAIN }}'
+        line: "{{ HARBOR_IP }}  {{HARBOR_DOMAIN}}"
     
     - name: 开机启用docker 服务
       shell: systemctl enable docker

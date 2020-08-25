@@ -59,3 +59,8 @@ ca_dir="/etc/kubernetes/ssl"
 
 # Deploy Directory (kubeasz workspace)
 base_dir="/etc/ansible"
+
+# harbor
+#Harbor Remote IP
+HARBOR_IP="172.22.80.86"
+HARBOR_DOMAIN="hub.universe.com"
