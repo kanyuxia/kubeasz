@@ -229,7 +229,7 @@ function get_offline_image() {
   if [[ ! -f "$imageDir/pause_$pauseVer.tar" ]];then
     docker pull easzlab/pause-amd64:${pauseVer} && \
     docker save -o ${imageDir}/pause_${pauseVer}.tar easzlab/pause-amd64:${pauseVer}
-    /bin/cp -u "${imageDir}/pause_${pauseVer}.tar" "${imageDir}/pause.tar"
+    /bin/cp -R "${imageDir}/pause_${pauseVer}.tar" "${imageDir}/pause.tar"
   fi
   if [[ ! -f "$imageDir/kubeasz_$KUBEASZ_VER.tar" ]];then
     docker pull easzlab/kubeasz:${KUBEASZ_VER} && \
@@ -238,11 +238,11 @@ function get_offline_image() {
 }
 
 function download_all() {
-  download_docker && \
-  install_docker && \
-  get_kubeasz && \
-  get_k8s_bin && \
-  get_ext_bin && \
+#  download_docker && \
+#  install_docker && \
+#  get_kubeasz && \
+#  get_k8s_bin && \
+#  get_ext_bin && \
   get_offline_image
 }
 
