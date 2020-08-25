@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  kubeasz:
+    image: "easzlab/kubeasz:2.2.1"
+    volumes:
+      - ./hosts:/data/app/hosts/
+      - ./../../kubeasz:/etc/ansible/
+      - ./ssh:/root/.ssh/
+    working_dir: /data/app
